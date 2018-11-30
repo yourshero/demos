@@ -1,0 +1,126 @@
+<!DOCTYPE html> 
+<html> 
+  
+ <head> 
+  <meta charset="UTF-8"> 
+  <title>数字自动增加</title> 
+ </head> 
+  <style>
+	.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+	}
+	html{
+	height:100%;
+	}
+	body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	}
+  .total-day-process{
+
+height: 26px;
+}
+.total-course-process{
+    
+height: 26px;
+}
+.total-day-process-total,.total-course-process-total{
+
+display: flex;
+
+justify-content: space-between;
+
+margin-bottom: 8px;
+}
+.total-day-process-total span,.total-course-process-total span{
+
+font-size: 12px;
+
+color: #54657e;
+}
+.total-day-process-total b,.total-course-process-total b{
+    
+font-size: 12px;
+    
+color: #54657e;
+}
+.total-day-process-line,.total-course-process-line{
+
+height: 5px;
+
+background-color: #eceff4;
+
+border-radius: 5px;
+}
+.total-day-process-line-yellow{
+
+height: 100%;
+
+background-color: #ffd92e;
+
+border-radius: 5px;
+
+background-color: #FEE140;
+
+background-image: linear-gradient(0deg,#FEE140 46%,#FFB23C 100%);
+
+background-image: -webkit-linear-gradient(0deg,#FEE140 46%,#FFB23C 100%);
+
+background-image: -moz-linear-gradient(0deg,#FEE140 46%,#FFB23C 100%);
+
+background-image: -o-linear-gradient(0deg,#FEE140 46%,#FFB23C 100%);
+
+width: 0;
+
+transition: width 1s;
+
+-moz-transition:width 1s; /* Firefox 4 */
+
+-webkit-transition:width 1s; /* Safari and Chrome */
+
+-o-transition:width 1s; /* Opera */
+}
+	</style>
+ <body>
+ <div class="box">
+  <div class="total-day-process">
+    <div class="total-day-process-total">
+        <span>总学习天数</span>
+        <b id="score5">50</b>
+    </div>
+    <div class="total-day-process-line">
+        <div class="total-day-process-line-yellow" id="yellow-line"></div>
+    </div>
+</div>
+ </div>
+ <script src="jquery/jquery.min.js"></script>
+  <script> 
+        var total_day = 200;//总天数
+        var now_day = 100;//完成天数
+        var dom = $('#yellow-line');
+           function process(process_dom, now_day, total_day) {
+            if (now_day == 0) {
+                process_wid = 0;
+                process_dom.width(0);
+            } else if (now_day < total_day) {
+                process_wid = toPercent(now_day, total_day);
+                process_dom.width(process_wid);
+            } else if (now_day >=total_day) {
+                process_dom.width(100+'%');
+            }
+        }
+        function toPercent(num, total) {
+            return (Math.round(num / total * 10000) / 100.00 + "%"); // 小数点后两位百分比
+        }
+        process(dom, now_day, total_day); //进度读取方法
+  </script> 
+  
+ </body> 
+  
+</html>
