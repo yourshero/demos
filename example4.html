@@ -23,11 +23,21 @@ top: -10px;
 .tm::after{
 bottom:-10px;
 }
+
 </style>
 <body>
     <p style="text-align:center;color:#fff;">前面的背景图会覆盖在后面的背景图之上</p>
-    <div class="tm">
+    <div class="tm" id='btn'>
 
     </div>
 </body>
 </html>
+<script>
+let btn = document.getElementById('btn');
+btn.addEventListener('click',function(e){
+    console.log(e);
+})
+document.body.addEventListener('click',function(){
+    console.log('body');
+})
+</script>
