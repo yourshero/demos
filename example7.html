@@ -64,7 +64,7 @@
             cancelAnimationFrame(timer3);
             var myDiv3 = document.getElementById('myDiv3');
         myDiv3.style.width = '0';
-        timer3 = setTimeout(function fn(){
+        timer3 = requestAnimationFrame(function fn(){
             if(parseInt(myDiv3.style.width)<500){
                 myDiv3.style.width = parseInt(myDiv3.style.width)+5+'px';
                 myDiv3.innerHTML = parseInt(myDiv3.style.width)/5+'%';
