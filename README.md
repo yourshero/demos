@@ -7,4 +7,5 @@
 ★.[css之clip-path](https://yourshero.github.io/demos/example3.html)  
 ★.[css之优惠券](https://yourshero.github.io/demos/example4.html)  
 ★.[css之仿qq消息提示小圆点形状](https://yourshero.github.io/demos/example5.html)  
-★.[css之高大上的文本描边效果](https://yourshero.github.io/demos/example6.html)
+★.[css之高大上的文本描边效果](https://yourshero.github.io/demos/example6.html)  
+★.[setInterval、setTimeout、requestAnimationFrame三种方法实现动画进度条](https://yourshero.github.io/demos/example7.html)  
