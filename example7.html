@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    
+</style>
+<body>
+   <div class="div1">
+    <div id="myDiv1" style="background-color: lightblue;width: 0;height: 20px;line-height: 20px;">0%</div> <button id="btn1">setInterval</button>
+   </div>
+   <div class="div2">
+    <div id="myDiv2" style="background-color: lightblue;width: 0;height: 20px;line-height: 20px;">0%</div> <button id="btn2">setTimeout</button>
+   </div>
+   <div class="div2">
+    <div id="myDiv3" style="background-color: lightblue;width: 0;height: 20px;line-height: 20px;">0%</div> <button id="btn3">requestAnimationFrame</button>
+   </div>
+   <p><a style="color:red;text-decoration: none;" href="https://www.w3cplus.com/javascript/requestAnimationFrame.html">引用此文</a></p>
+</body>
+<script>
+    window.onload = function(){
+        //setInterval
+        var timer1;
+        var btn1 = document.getElementById('btn1');
+        btn1.onclick=function(){
+        clearInterval(timer1);
+        var myDiv1 = document.getElementById('myDiv1');
+        myDiv1.style.width = '0';
+        timer1 = setInterval(function(){
+            if(parseInt(myDiv1.style.width)<500){
+                myDiv1.style.width = parseInt(myDiv1.style.width)+5+'px';
+                myDiv1.innerHTML = parseInt(myDiv1.style.width)/5+'%';
+            }else{
+                clearInterval(timer1);
+            }
+        },16);
+        }
+        //setTimeout
+        var timer2;
+        var btn2 = document.getElementById('btn2');
+        btn2.onclick=function(){
+            clearInterval(timer2);
+            var myDiv2 = document.getElementById('myDiv2');
+        myDiv2.style.width = '0';
+        timer2 = setTimeout(function fn(){
+            if(parseInt(myDiv2.style.width)<500){
+                myDiv2.style.width = parseInt(myDiv2.style.width)+5+'px';
+                myDiv2.innerHTML = parseInt(myDiv2.style.width)/5+'%';
+                timer2 = setTimeout(fn,16);
+            }else{
+                clearInterval(timer2);
+            }
+        },16);
+        }
+        //requestAnimationFrame
+        var timer3;
+        var btn3 = document.getElementById('btn3');
+        btn3.onclick=function(){
+            cancelAnimationFrame(timer3);
+            var myDiv3 = document.getElementById('myDiv3');
+        myDiv3.style.width = '0';
+        timer3 = setTimeout(function fn(){
+            if(parseInt(myDiv3.style.width)<500){
+                myDiv3.style.width = parseInt(myDiv3.style.width)+5+'px';
+                myDiv3.innerHTML = parseInt(myDiv3.style.width)/5+'%';
+                timer3 = requestAnimationFrame(fn);
+            }else{
+                cancelAnimationFrame(timer3);
+            }
+        });
+        }
+    }
+</script>
+</html>

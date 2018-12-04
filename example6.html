@@ -34,6 +34,61 @@
         stroke: #0f9;
         font-size: 100px;
     }
+    .mb4 p{
+        font-size: 14px;
+    }
+    .mb4 text{
+        text-align: left;
+    }
+    /* svg动画 */
+    .text {
+  fill: none;
+  stroke-width: 6;
+  stroke-linejoin: round;
+  stroke-dasharray: 70 330;
+  stroke-dashoffset: 0;
+  animation: stroke 6s infinite linear;
+}
+
+.text:nth-child(5n + 1) {
+  stroke: #F2385A;
+  animation-delay: -1.2s;
+}
+.text:nth-child(5n + 2) {
+  stroke: #F5A503;
+  animation-delay: -2.4s;
+}
+
+.text:nth-child(5n + 3) {
+  stroke: #E9F1DF;
+  animation-delay: -3.6s;
+}
+
+.text:nth-child(5n + 4) {
+  stroke: #56D9CD;
+  animation-delay: -4.8s;
+}
+
+.text:nth-child(5n + 5) {
+  stroke: #3AA1BF;
+  animation-delay: -6s;
+}
+
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -400;
+  }
+}
+.mb5{
+    height: 200px;
+}
+.mb5 svg {
+  position: absolute;
+  height: 100%;
+  font-size: 200px;
+  height: 200px;
+}
 </style>
 <body>
     <div class="box">
@@ -49,13 +104,36 @@
                 <span>斯德哥尔摩情人</span>
                 <p>text-stroke</p>
         </div>
-        <div class="">
+        <div class="mb4">
                 <svg width="100%" height="300">
                         <text class="mb4" x="100" y="150">斯德哥尔摩情人</text>
                 </svg>
                 <p>svg方法</p>
         </div>
-        
+        <div class="mb5">
+            <svg viewBox="0 0 1320 300" style="background-color: black;">
+                <!-- Symbol -->
+                <symbol id="s-text">
+                  <text text-anchor="middle"
+                        x="50%" y="50%" dy=".35em">
+                    w3cplus
+                  </text>
+                </symbol>  
+              
+                <!-- Duplicate symbols -->
+                <use xlink:href="#s-text" class="text"
+                     ></use>
+                <use xlink:href="#s-text" class="text"
+                     ></use>
+                <use xlink:href="#s-text" class="text"
+                     ></use>
+                <use xlink:href="#s-text" class="text"
+                     ></use>
+                <use xlink:href="#s-text" class="text"
+                     ></use>
+              
+              </svg>
+        </div>
     </div>
 </body>
 </html>
