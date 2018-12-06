@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 1140px;
+        margin:0 auto;
+    }
+    .btn{
+        width: 100px;
+        height: 30px;
+        background-color: #eee;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+    .print{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+</style>
+<style media="print">
+        /* 去掉页脚页眉 */
+            @page {
+                size: auto;  /* auto is the initial value */
+                margin: 0mm; /* this affects the margin in the printer settings */
+            }
+        </style>
+<body>
+    <div class="box">
+        <div>
+            <p style="font-weight:bold">打印pdf思路</p>
+            <p>1.先获取需要打印的部分的dom,通过jq的html(),js的outHTML获得字符串.也可以用注释的方法来获取dom.</p>
+            <p>2.打印页面</p>
+            <p>3.还原界面</p>
+            <p>注意:打印background背景色、背景图片需要设置才能显示出来,canvas画出来的图不能打印出来,打印前需要将canvas转换成图片方可打印.(eacharts打印柱状图表,还需要监听(mychar.on('finished',function(){}))动画渲染是否结束,结束后才能打印.)</p>
+        </div>
+        <!-- <div>打印部分区域</div> -->
+        <!--startprint-->
+        <div class='print'>
+            <div style="background:url(../images/ly.jpg);width:200px;font-size: 12px;
+                height: 300px;">
+                <!-- <img src="../images/ly.jpg" alt=""> -->
+            </div>
+            <div class="print-canvas">
+            <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                    这是canvas
+                    </canvas>
+                </div>
+            <h2>开心一下</h2>
+        </div>
+        <!--endprint-->
+        <div class="btn">打印</div>
+    </div>
+</body>
+</html>
+<script src="../libs/jquery/jquery.min.js"></script>
+<script>
+    window.onload = function(){
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(95,50,40,0,2*Math.PI);
+        ctx.stroke();
+        function convertCanvasToImage(canvas) {
+            var image = new Image();
+            image.src = canvas.toDataURL("image/png");
+            return image;
+        }
+        $('.print-canvas').html(convertCanvasToImage(c));
+        function preview() { 
+            // ****方法一:使用注释来标记要打印的部分****
+
+            var bdhtml=window.document.body.innerHTML;//获取当前页的html代码 
+            // var startStr="<!--startprint-->";//设置打印开始区域
+            // var endStr="<!--endprint-->";//设置打印结束区域 
+            // var printHtml=bdhtml.substring(bdhtml.indexOf(startStr)+startStr.length,bdhtml.indexOf(endStr));//从标记里获取需要打印的页面 
+
+            // ****方法二:直接获取dom元素,然后变成字符串形式.****
+            console.log(document.querySelector('.print').outerHTML);
+            window.document.body.innerHTML=document.querySelector('.print').outerHTML;//需要打印的页面 
+            window.print(); 
+            window.document.body.innerHTML=bdhtml;//还原界面 
+            location.reload();
+            }
+            var btn = document.querySelector('.btn');
+            btn.onclick=function(){
+                preview();
+            }
+        }
+</script>
