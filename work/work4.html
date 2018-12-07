@@ -72,8 +72,9 @@
         ctx.arc(95,50,40,0,2*Math.PI);
         ctx.stroke();
         function convertCanvasToImage(canvas) {
-            var image = new Image();
+            var image = new Image();getDataURL
             image.src = canvas.toDataURL("image/png");
+			// image.src = canvas.getDataURL(); 如果打印canvas柱状图,使用getDataURL()方法cavans即为实例earcharts的名字,cavans.setOption(option);
             return image;
         }
         $('.print-canvas').html(convertCanvasToImage(c));
@@ -86,7 +87,9 @@
             // var printHtml=bdhtml.substring(bdhtml.indexOf(startStr)+startStr.length,bdhtml.indexOf(endStr));//从标记里获取需要打印的页面 
 
             // ****方法二:直接获取dom元素,然后变成字符串形式.****
-            console.log(document.querySelector('.print').outerHTML);
+            console.log($('.print').html());
+            console.log(querySelector('.print').outerHTML)
+            // html()不包括本身,onterHTML包括本身
             window.document.body.innerHTML=document.querySelector('.print').outerHTML;//需要打印的页面 
             window.print(); 
             window.document.body.innerHTML=bdhtml;//还原界面 
