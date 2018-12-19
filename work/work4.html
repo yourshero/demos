@@ -88,9 +88,9 @@
 
             // ****方法二:直接获取dom元素,然后变成字符串形式.****
             console.log($('.print').html());
-            console.log(querySelector('.print').outerHTML)
             // html()不包括本身,onterHTML包括本身
-            window.document.body.innerHTML=document.querySelector('.print').outerHTML;//需要打印的页面 
+            //window.document.body.innerHTML=document.querySelector('.print').outerHTML;//需要打印的页面 
+            window.document.body.innerHTML=$('.print').html();
             window.print(); 
             window.document.body.innerHTML=bdhtml;//还原界面 
             location.reload();
