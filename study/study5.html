@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    div{
+        width: 100px;
+        height: 50px;
+        background: #eee;
+        cursor: url("http://ued.taobao.com/blog/wp-content/themes/taobaoued/images/cursor.ico"),auto;
+        margin:0 auto;
+        margin-top: 100px;
+    }
+    html,body{
+        height: 100%;
+        margin:0;
+    }
+</style>
+<body>
+   <div id="div">
+   </div>
+   <p style="color:coral">IE支持cur,ani,ico这三种格式，FF支持bmp,gif,jpg,cur,ico这几种格式，不支持ani格式，也不支持gif动画格式，因此来说一般将url引用的图片存为ico或cur格式比较好！</p>
+   <p style="color:coral">鼠标图片的尺寸推荐尺寸是32*32，否则可能会导致图标大小不一致的问题！</p>
+</body>
+<script>
+ window.onload=function(){
+    var btn = document.getElementById('div');
+    btn.addEventListener('mousemove',function(e){
+      console.log(1);  
+    })
+    }
+</script>
+</html>
