@@ -1,0 +1,17 @@
+document.writeln("<!DOCTYPE html>");
+document.writeln("<html lang=\'en\'>");
+document.writeln("<head>");
+document.writeln("    <meta charset=\'UTF-8\'>");
+document.writeln("    <meta name=\'viewport\' content=\'width=device-width, initial-scale=1.0\'>");
+document.writeln("    <meta http-equiv=\'X-UA-Compatible\' content=\'ie=edge\'>");
+document.writeln("    <title>Document</title>");
+document.writeln("</head>");
+document.writeln("<body>");
+document.writeln("    <div>");
+document.writeln("        我是模块nav1");
+document.writeln("    </div>");
+document.writeln("</body>");
+document.writeln("</html>");
+document.writeln("<script>");
+document.writeln("    var a = 1;");
+document.writeln("</script>");
