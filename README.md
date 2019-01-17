@@ -15,4 +15,5 @@
 ★.[setInterval、setTimeout、requestAnimationFrame三种方法实现动画进度条](https://yourshero.github.io/demos/study/study4.html)  
 ★.[自定义鼠标icon](https://yourshero.github.io/demos/study/study5.html)  
 ★.[js移动适配](https://yourshero.github.io/demos/study/移动适配.html)  
-★.[html页面模块化(将html转换成js,调用js)](https://yourshero.github.io/demos/study/study6/index.html) 
+★.[html页面模块化(将html转换成js,调用js)](https://yourshero.github.io/demos/study/study6/index.html)  
+★.[css之纯css导航栏下划线跟随效果](https://yourshero.github.io/demos/css动画效果/example5.html)  
