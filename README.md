@@ -6,6 +6,7 @@
 ★.[js实现页面打印(兼容canvas)](https://yourshero.github.io/demos/work/work4.html)  
 ★.[简单时长倒计时](https://yourshero.github.io/demos/work/work5.html)  
 ★.[js实现柱状图心跳动画](https://yourshero.github.io/demos/work/work6.html) 
+★.[jq懒加载](https://yourshero.github.io/demos/work/work7.html) 
 ### 学习实践
 ★.[调用高德地图](https://yourshero.github.io/demos/study/根据经纬度自动定位.html)  
 ★.[css实现七彩渐变色圆形边框](https://yourshero.github.io/demos/css动画效果/example1.html)  
