@@ -44,9 +44,8 @@
     <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" /></a></li>
     <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" /></a></li>
 </ul>
-
 <script>
-    // ********jq懒加载***********
+    // *****jq懒加载*********
     // $('.container img').each(function () {
     //     if (checkShow($(this)) && !isLoaded($(this)) ){
     //         loadImg($(this));
@@ -81,14 +80,32 @@
     // ********js懒加载***********
     window.onload = function(){
         var imgs = document.querySelectorAll('img');
-    window.onscroll = function () {
-        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        var winHeight = window.innerHeight;
         for(var i = 0; i < imgs.length; i++) {
-            if (imgs[i].offsetTop < scrollTop + winHeight) {
-                imgs[i].src = imgs[i].getAttribute('data-src');
+            if (checkShow(imgs[i]) && !isLoaded(imgs[i]) ){
+                loadImg(imgs[i]);
             }
         }
+    window.onscroll = function () {
+        for(var i = 0; i < imgs.length; i++) {
+            if (checkShow(imgs[i]) && !isLoaded(imgs[i]) ){
+                loadImg(imgs[i]);
+            }
+        }
+    }
+    function checkShow(el){
+        var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        var winHeight = window.innerHeight;
+        var offsetTop = el.offsetTop;
+        if(offsetTop < (scrollTop + winHeight) && offsetTop > scrollTop) {
+            return true;
+        }
+        return false;
+    }
+    function isLoaded(el){
+        return el.getAttribute('data-src') === el.getAttribute('src');
+    }
+    function loadImg(el){
+        el.setAttribute('src',el.getAttribute('data-src'));
     }
     }
 </script>
