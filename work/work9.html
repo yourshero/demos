@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .other-table th {
+            background-color: #ECECEC;
+            height: 47px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        #other-table {
+            position: relative;
+            height: 601px;
+            margin: auto;
+            background-color: white;
+            overflow: auto;
+            border: 1px solid rgba(214, 214, 214, 1);
+        }
+
+        #grid1,
+        #grid2 {
+            width: 1600px;
+            /* border: 1px solid gray; */
+        }
+
+        #theadDiv {
+            position: absolute;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        td {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        tbody td {
+            border-bottom: 1px dashed #eee;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        tbody tr .overflow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        tbody tr a {
+            display: block;
+            color: #000;
+            text-decoration: none;
+        }
+
+        #tbodyDiv {
+            position: absolute;
+            top: 47px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: auto;
+        }
+
+        #all_check {
+            cursor: pointer;
+        }
+
+        .other-table .w60 {
+            width: 60px;
+        }
+
+        .other-table .w80 {
+            width: 80px;
+        }
+
+        .other-table .w180 {
+            width: 180px;
+        }
+
+        .other-table .w100 {
+            width: 100px;
+        }
+
+        .other-table .w300 {
+            width: 300px;
+        }
+
+        .other-table tbody td img {
+            display: block;
+            width: 70px;
+            height: 70px;
+        }
+
+        .other-table table .tab-l {
+            text-align: left;
+        }
+
+        .other-table tbody tr td img {
+
+            display: block;
+
+            width: 70px;
+
+            height: 70px;
+
+            margin: 0 auto;
+        }
+
+        .other-table tbody tr td input[type="checkbox"]+label::before {
+            content: "\a0";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #D6D6D6;
+            cursor: pointer;
+        }
+
+        .other-table tbody td input[type="checkbox"]:checked+label::before {
+            content: "\2713";
+            background-color: rgba(30, 100, 230, 1);
+            color: #fff;
+        }
+
+        .other-table tbody tr td input {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .other-table th img {
+            margin-left: 5px;
+            margin-top: -2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="other-table" class="other-table" style="width:1181px;">
+        <div id="theadDiv">
+            <table id="grid1" class="fixedTable" border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th class="w60" id='all_check'>全选</th>
+                        <th class="w80">宝贝主图</th>
+                        <th class="w300 tab-l">商品名称</th>
+                        <th class="w180 tab-l">店铺名称</th>
+                        <th class="w180 tab-l">宝贝类目</th>
+                        <th class="w80"><span>宝贝价格</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>发货地</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>月销量</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>日销量</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>评价数</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>收藏量</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>SKU数</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>晒图评价</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>追评</span><img src="./img/sort_icon.png" alt=""></th>
+                        <th class="w80"><span>好评</span><img src="./img/sort_icon.png" alt=""></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="tbodyDiv">
+            <table id="grid2" border="0" cellpadding="0" cellspacing="0">
+                <thead style="display:none;">
+                    <tr style="text-align: center;">
+                        <th class="w60 del">全选</th>
+                        <th class="w80 del">宝贝主图</th>
+                        <th class="w300">商品名称</th>
+                        <th class="w180">店铺名称</th>
+                        <th class="w180">宝贝类目</th>
+                        <th class="w80">宝贝价格</th>
+                        <th class="w80">发货地</th>
+                        <th class="w80">月销量</th>
+                        <th class="w80">日销量</th>
+                        <th class="w80">评价数</th>
+                        <th class="w80">收藏量</th>
+                        <th class="w80">SKU数</th>
+                        <th class="w80">晒图评价</th>
+                        <th class="w80">追评</th>
+                        <th class="w80">好评</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check1'>
+                            <label for="check1"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                1骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check2'>
+                            <label for="check2"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                2 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check3'>
+                            <label for="check3"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                3 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check4'>
+                            <label for="check4"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                3 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check5'>
+                            <label for="check5"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                3 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check6'>
+                            <label for="check6"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                3 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check7'>
+                            <label for="check7"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                3 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w60 del">
+                            <input type="checkbox" class='check' id='check8'>
+                            <label for="check8"></label>
+                        </td>
+                        <td class="w80 del">
+                            <img src="./img/pro_bd.png" alt="">
+                        </td>
+                        <td class="w300 tab-l">
+                            <a href='#' class="overflow w300" title='骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋'>
+                                3 骆驼运动鞋男跑步鞋2019年夏季时尚学生休闲男鞋子透气超轻跑鞋
+                            </a>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='骆驼牌运动旗舰店'>
+                                骆驼牌运动旗舰店
+                            </p>
+                        </td>
+                        <td class="w180 tab-l">
+                            <p class="overflow w180" title='步鞋2019年夏季时尚学生休闲'>
+                                步鞋2019年夏季时尚学生休闲
+                            </p>
+                        </td>
+                        <td class="w80">
+                            2133
+                        </td>
+                        <td class="w80">
+                            广东 广州
+                        </td>
+                        <td class="w80">
+                            5265242
+                        </td>
+                        <td class="w80">
+                            2523
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            88
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                        <td class="w80">
+                            0
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="display:flex;justify-content: center;
+    margin-top: 30px;">
+        <div class="select-excle-btn" style="    font-size: 12px;
+        margin-right: 15px;
+        height: 35px;
+        width: 107px;
+        background: #1E64E6;
+        border-radius: 0;
+        border: none;
+        color:#fff;
+        text-align: center;
+        line-height: 35px;
+        cursor: pointer;">
+                选中产品执行
+            </div>
+        <div class="all-excle-btn" style="    font-size: 12px;cursor: pointer;
+        height: 35px;
+        width: 107px;
+        background: #1E64E6;
+        border-radius: 0;
+        border: none; color:#fff;
+        text-align: center;
+        line-height: 35px;">
+                导出成表格文档
+            </div>
+        </div>
+</body>
+
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/table2excel.js"></script>
+<script>
+    $(function () {
+        $('#tbodyDiv').on('scroll', function () {
+            $("#theadDiv").scrollLeft($('#tbodyDiv').scrollLeft());
+            //   console.log($('#tbodyDiv').scrollLeft(),$(this).width());
+            if (($(this).width() + $(this).scrollLeft()) >= $('#grid2').width() + 17) {
+                console.log(1);
+                $('#grid1 th:last').addClass('w100');
+            } else {
+                $('#grid1 th:last').removeClass('w100');
+            }
+        });
+        //   表格文档   
+        $('.other-table tbody tr').addClass('del');
+        $(".all-excle-btn").click(function () {
+            $('.other-table tbody tr').removeClass('del');
+            $("#grid2").table2excel({
+                exclude: ".del",
+                filename: "文件名.xlsx",
+                name: "Excel Document Name.xlsx",
+                exclude_img: false,
+                exclude_links: true,
+                exclude_inputs: false
+            });
+        });
+        var isNotAll = false;
+        $(".select-excle-btn").click(function () {
+            check_flag();
+            if (isNotAll) {
+                $("#grid2").table2excel({
+                    exclude: ".del",
+                    filename: "文件名.xlsx",
+                    name: "Excel Document Name.xlsx",
+                    exclude_img: false,
+                    exclude_links: true,
+                    exclude_inputs: false
+                });
+                isNotAll = false;
+            }
+        });
+
+        function check_flag() {
+            $('.other-table .check').each(function () {
+                if ($(this).prop('checked')) {
+                    $(this).parent().parent().removeClass('del');
+                    isNotAll = true;
+                } else {
+                    $(this).parent().parent().addClass('del');
+                }
+            })
+        }
+    })
+</script>
