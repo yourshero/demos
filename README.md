@@ -8,7 +8,7 @@
 ★.[js实现柱状图心跳动画](https://yourshero.github.io/demos/work/work6.html)  
 ★.[jq/js懒加载](https://yourshero.github.io/demos/work/work7.html)  
 ★.[jq导出table为excel表格(http://www.cmsdx.com/wenzhang/329.html)](https://yourshero.github.io/demos/work/work8.html)  
-★.[jq导出table为excel表格+筛选](https://yourshero.github.io/demos/work/work8.html)  
+★.[jq导出table为excel表格+筛选](https://yourshero.github.io/demos/work/work9.html)  
 ### 学习实践
 ★.[调用高德地图](https://yourshero.github.io/demos/study/根据经纬度自动定位.html)  
 ★.[css实现七彩渐变色圆形边框](https://yourshero.github.io/demos/css动画效果/example1.html)  
