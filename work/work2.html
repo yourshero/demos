@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <style>
-    div{
+    /* div{
         min-width: 20px;
         height: 20px;
         text-align: center;
@@ -19,11 +19,22 @@
         font-size: 12px;
         padding: 0 5px;
         box-sizing: border-box;
+    } */
+    .listing-list li{
+        width: 33%;
+    }
+    .listing-list li:first-child:nth-last-child(2),
+    .listing-list li:first-child:nth-last-child(2) ~ li{
+        width: 50%;
     }
 </style>
 <body>
-    <div>
+    <!-- <div>
         12
-    </div>
+    </div> -->
+    <ul class="listing-list">
+        <li>1</li>
+        <li>3</li>
+    </ul>
 </body>
 </html>
