@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>html压缩方法(jq)</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    $(function () {
+        var txt = `<p>   </p>奥术大   师多<a href='asdasdasda'></a>   奥术大师多adsasd`
+        function compress(source){
+            if(source){
+                var rep = /\n+/g;
+                var repone = /<!--.*?-->/ig;
+                var reptwo = /\/\*.*?\*\//ig;
+                var reptree = /[ ]+</ig;
+                var new_sourceZero = source.replace(rep, "");
+                var new_sourceOne = new_sourceZero.replace(repone, "");
+                var new_sourceTwo = new_sourceOne.replace(reptwo, "");
+                var new_sourceTree = new_sourceTwo.replace(reptree, "<");
+                return new_sourceTree;
+            }else{
+                return;
+            }
+        }
+        compress(txt)
+    })
+</script>
